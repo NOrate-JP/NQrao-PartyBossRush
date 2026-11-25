@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>のれーとパーティ9 ボスラッシュ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- タイトル -->
+<section id="title" class="screen">
+  <div class="card wide">
+    <canvas id="logo" width="660" height="270"></canvas>
+    <div class="row">
+      <label>なまえ <input id="pname" maxlength="10"></label>
+    </div>
+    <div class="lbl">キャラクター</div>
+    <div id="chars"></div>
+    <div class="menu">
+      <button id="btnSolo" class="big red">ひとりであそぶ</button>
+      <button id="btnCreate" class="big blue">ルームをつくる</button>
+      <div class="join">
+        <input id="joinCode" placeholder="ルームコード" maxlength="6">
+        <button id="btnJoin" class="big green">ルームにはいる</button>
+      </div>
+    </div>
+    <div id="netStatus" class="note"></div>
+    <div id="netNote" class="note"></div>
+  </div>
+</section>
+
+<!-- ひとりで -->
+<section id="solo" class="screen">
+  <div class="card">
+    <h2>ひとりであそぶ</h2>
+    <label>コース <select id="soloCourse"></select></label>
+    <label>人数（たりない分はCPU） <select id="soloTotal"><option value="2">2人</option><option value="3">3人</option><option value="4" selected>4人</option></select></label>
+    <label>CPUの強さ <select id="soloLv"><option value="0">よわい</option><option value="1" selected>ふつう</option><option value="2">つよい</option></select></label>
+    <div class="menu">
+      <button id="soloStart" class="big red">スタート！</button>
+      <button data-back class="big gray">もどる</button>
+    </div>
+  </div>
+</section>
+
+<!-- ロビー -->
+<section id="lobby" class="screen">
+  <div class="card">
+    <h2>ロビー</h2>
+    <div class="code">ルームコード <b id="roomCode">-----</b> <button id="copyCode" class="mini">コピー</button></div>
+    <div id="lobPlayers"></div>
+    <label>コース <select id="lobCourse"></select></label>
+    <label>人数（たりない分はCPU） <select id="lobTotal"><option value="2">2人</option><option value="3">3人</option><option value="4" selected>4人</option></select></label>
+    <label>CPUの強さ <select id="lobLv"><option value="0">よわい</option><option value="1" selected>ふつう</option><option value="2">つよい</option></select></label>
+    <div class="menu">
+      <button id="lobStart" class="big red">スタート！</button>
+      <div id="lobWait" class="note">ホストがスタートするのを待っています…</div>
+      <button id="lobLeave" class="big gray">ぬける</button>
+    </div>
+  </div>
+</section>
+
+<!-- ゲーム -->
+<section id="game" class="screen">
+  <canvas id="cv" width="960" height="540"></canvas>
+  <div class="gbtns"><button id="gameMute">🔊</button><button id="gameQuit">✕</button></div>
+  <div id="finalBox">
+    <button id="finalLobby" class="big blue">ロビーにもどる</button>
+    <button id="finalRetry" class="big red">もう一度</button>
+    <div id="finalWait" class="note">ホストの操作を待っています…</div>
+    <button id="finalTitle" class="big gray">タイトルへ</button>
+  </div>
+  <div id="pad">
+    <div class="dpad">
+      <button data-k="u" class="u">▲</button><button data-k="l" class="l">◀</button><button data-k="r" class="r">▶</button><button data-k="d" class="d">▼</button>
+    </div>
+    <div class="ab"><button data-k="b" class="b">B</button><button data-k="a" class="a">A</button></div>
+  </div>
+</section>
+
+<div id="toast"></div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
